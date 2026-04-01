@@ -8,4 +8,4 @@ WORKDIR /app
 COPY . .
 
 # Run Docker Compose to start the services
-CMD ["docker-compose", "up", "-d"]
+# CMD ["docker-compose", "up", "-d"] #
