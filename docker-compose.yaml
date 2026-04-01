@@ -1,3 +1,4 @@
+version: '3.8'  # Make sure the version is valid
 services:
   # This is Swetrix user interface application, it's used to display the analytics data, render charts, etc.
   swetrix:
