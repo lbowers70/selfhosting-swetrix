@@ -1,4 +1,4 @@
-version: '3.8'  # Make sure the version is valid
+version: '3.8'
 services:
   # This is Swetrix user interface application, it's used to display the analytics data, render charts, etc.
   swetrix:
@@ -8,7 +8,6 @@ services:
       - swetrix-api
     environment:
       - BASE_URL=${BASE_URL}
-
 
   # This is Swetrix API, it's purpose is to collect incoming analytical events and serve the data to the UI
   swetrix-api:
@@ -46,16 +45,9 @@ services:
       - redis
       - clickhouse
 
-
-  swetrix-fe:  # Must exist
-    image: nginx:latest
-    restart: always
-
   redis:
     image: redis:7.2-alpine
     restart: always
-    ports:
-      - 6378:6379
 
   clickhouse:
     image: clickhouse/clickhouse-server:24.10-alpine
@@ -76,13 +68,11 @@ services:
       - ./clickhouse/preserve-ram-config.xml:/etc/clickhouse-server/config.d/preserve-ram-config.xml:ro
       - ./clickhouse/preserve-ram-user.xml:/etc/clickhouse-server/users.d/preserve-ram-user.xml:ro
 
-
   nginx-proxy:
     image: nginx:latest
     restart: always
     depends_on:
       - swetrix-api
-      - swetrix-fe
     ports:
       - "80:80"
     volumes:
