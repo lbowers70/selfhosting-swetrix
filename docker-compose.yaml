@@ -58,6 +58,10 @@ services:
       interval: 30s
       start_period: 15s
 
+  swetrix-fe:  # Must exist
+    image: nginx:latest
+    restart: always
+
   redis:
     image: redis:8.2-alpine
     restart: always
