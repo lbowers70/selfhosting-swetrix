@@ -1,0 +1,6 @@
+FROM swetrix/swetrix-fe:v3.3.1
+
+ENV NODE_ENV=production
+ENV SELFHOSTED=true
+
+EXPOSE 3000
